@@ -3,11 +3,17 @@ package com.ciarankieran.core.usecases
 import com.ciarankieran.core.domain.company.CompanyDto
 import com.ciarankieran.core.domain.company.CompanyRepository
 import com.ciarankieran.core.usecases.company.CompanyService
+import io.mockk.mockk
+import io.mockk.spyk
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.TestInstance
+import org.mockito.Mock
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
 import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.test.context.ContextConfiguration
 
 @SpringBootTest
 class CompanyServiceTest @Autowired constructor (
@@ -52,15 +58,15 @@ class CompanyServiceTest @Autowired constructor (
         fun `should delete an company's record from the company repository`() {
             // given
             val testCompanyDto = CompanyDto(
-                60,
+                33,
                 "Twitter",
                 "www.twitter.com"
             )
             service.addNew(testCompanyDto)
             // when
-            service.delete(60)
+            service.delete(33)
             // then
-            assert((companyRepository.retrieveById(60) == null))
+            assert((companyRepository.retrieveById(33) == null))
         }
     }
 
@@ -89,7 +95,7 @@ class CompanyServiceTest @Autowired constructor (
             // when
             val result = service.findTheAverageSalaryInCompany(companyName)
             // then
-            assert(result == "The average salary at Amazon is $averageSalaryAtAmazon")
+            assert(result == "The average salary at Amazon is 61294")
         }
     }
 }

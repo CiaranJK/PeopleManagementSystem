@@ -108,7 +108,7 @@ internal class ManagerControllerTest @Autowired constructor (
         @Test
         fun `should delete a manager's record from the manager repository`() {
             // given
-            val id = 25
+            val id = 24
             // when/then
             mockMvc.delete("$baseUrl/delete/$id")
                 .andDo { print() }
@@ -151,7 +151,7 @@ internal class ManagerControllerTest @Autowired constructor (
                 .andExpect {
                     status { isOk() }
                     content { contentType(MediaType.APPLICATION_JSON) }
-                    jsonPath("$.name") { value("Ignatius Johns") }
+                    jsonPath("$.name") { value("Iva Lindgren") }
                     jsonPath("$.companyName") { value("Facebook") }
                 }
         }

@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.http.MediaType
+import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.delete
 import org.springframework.test.web.servlet.get
@@ -110,7 +111,7 @@ internal class CompanyControllerTest @Autowired constructor (
         @Test
         fun `should delete an company's record from the company repository`() {
             // given
-            val id = 35
+            val id = 10
             // when/then
             mockMvc.delete("$baseUrl/delete/$id")
                 .andDo { print() }
@@ -170,7 +171,7 @@ internal class CompanyControllerTest @Autowired constructor (
         fun `should find the average salary in a company`() {
             // given
             val companyName = "LinkedIn"
-            val averageSalaryAtLinkedIn = 61777
+            val averageSalaryAtLinkedIn = 55200
             // when/then
             mockMvc.get("$baseUrl/average-salary/$companyName")
                 .andDo { print() }

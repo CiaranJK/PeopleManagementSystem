@@ -1,5 +1,6 @@
 package com.ciarankieran.core.domain.manager
 
+import com.ciarankieran.core.domain.manager.ManagerRepository
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test

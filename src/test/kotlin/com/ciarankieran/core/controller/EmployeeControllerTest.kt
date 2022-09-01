@@ -1,7 +1,7 @@
 package com.ciarankieran.core.controller
 
-import com.ciarankieran.core.config.LoadResourceAsString
 import com.ciarankieran.core.domain.employee.EmployeeDto
+import com.ciarankieran.core.config.LoadResourceAsString
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested
@@ -11,10 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.http.MediaType
-import org.springframework.test.web.servlet.MockMvc
-import org.springframework.test.web.servlet.delete
-import org.springframework.test.web.servlet.get
-import org.springframework.test.web.servlet.post
+import org.springframework.test.context.ContextConfiguration
+import org.springframework.test.web.servlet.*
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -89,6 +87,7 @@ internal class EmployeeControllerTest @Autowired constructor (
         @Test
         fun `should return BAD REQUEST if given incomplete data to create an Employee Entity`() {
             // given
+            val companyName = "Facebook"
             val badInput = "Bad Input"
             // when
             val saveEmployee = mockMvc.post("$baseUrl/add-employee") {
@@ -113,7 +112,7 @@ internal class EmployeeControllerTest @Autowired constructor (
         @Test
         fun `should delete an employee's record from the employee repository`() {
             // given
-            val id = 3330
+            val id = 3307
             // when/then
             mockMvc.delete("$baseUrl/delete/$id")
                 .andDo { print() }

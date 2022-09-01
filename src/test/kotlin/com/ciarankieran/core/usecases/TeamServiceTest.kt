@@ -1,6 +1,7 @@
 package com.ciarankieran.core.usecases
 
 import com.ciarankieran.core.domain.employee.EmployeeRepository
+import com.ciarankieran.core.domain.manager.ManagerDto
 import com.ciarankieran.core.domain.team.TeamDto
 import com.ciarankieran.core.domain.team.TeamRepository
 import com.ciarankieran.core.usecases.team.TeamService
@@ -10,6 +11,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.test.context.ContextConfiguration
 
 @SpringBootTest
 class TeamServiceTest @Autowired constructor (
@@ -55,7 +57,7 @@ class TeamServiceTest @Autowired constructor (
     @DisplayName("Delete()")
     inner class Delete {
         @Test
-        fun `should delete a team's record from the team repository`() {
+        fun `should delete an team's record from the team repository`() {
             // given
             val testTeamDto = TeamDto(
                 18,
@@ -64,9 +66,9 @@ class TeamServiceTest @Autowired constructor (
             )
             service.addNew(testTeamDto)
             // when
-            service.delete(22)
+            service.delete(18)
             // then
-            assert((teamRepository.retrieveById(22) == null))
+            assert((teamRepository.retrieveById(18) == null))
         }
     }
 

@@ -119,7 +119,7 @@ internal class TeamControllerTest @Autowired constructor (
         @Test
         fun `should delete an team's record from the team repository`() {
             // given
-            val id = 21
+            val id = 13
             // when/then
             mockMvc.delete("$baseUrl/delete/$id")
                 .andDo { print() }

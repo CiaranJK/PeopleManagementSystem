@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.test.context.ContextConfiguration
 
 @SpringBootTest
 class EmployeeServiceTest @Autowired constructor (
@@ -62,9 +63,9 @@ class EmployeeServiceTest @Autowired constructor (
             )
             service.addNew(testEmployeeDto)
             // when
-            service.delete(114)
+            service.delete(106)
             // then
-            assert((employeeRepository.retrieveById(114) == null))
+            assert((employeeRepository.retrieveById(106) == null))
         }
     }
 }
